@@ -1,8 +1,9 @@
 package de.gzockoll.quantity;
 
 public class Quantity implements Comparable<Quantity> {
-	private long amount;
-	private Unit unit;
+	public static final Quantity ZERO = new ZeroQuantity();
+	protected long amount;
+	protected Unit unit;
 	public Quantity(long amount, Unit unit) {
 		super();
 		this.amount = amount;
@@ -77,4 +78,39 @@ public class Quantity implements Comparable<Quantity> {
 	public static Quantity zero(Unit unit) {
 		return new Quantity(0, unit);
 	}
+
+	public boolean isZero() {
+		return amount==0;
+	}
+	
+	public Quantity negate() {
+		return new Quantity(-amount,unit);
+	}
+
+	private static class ZeroQuantity extends Quantity {
+		public ZeroQuantity() {
+			super(0, null);
+		}
+
+		@Override
+		public Quantity add(Quantity other) {
+			return other;
+		}
+		
+		@Override
+		public Quantity sub(Quantity other) {
+			return other.negate();
+		}
+		
+		@Override
+		public boolean equals(Quantity other) {
+			return amount == other.amount;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return amount + " " + unit;
+	}
+
 }
