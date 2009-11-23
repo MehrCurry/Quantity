@@ -20,10 +20,10 @@ public class QuantityTest {
 
 	@Test
 	public void testHashCode() {
-		Quantity q1=Quantity.zero(Units.KG);
-		Quantity q2=new Quantity(0,Units.KG);
-		Quantity q3=Quantity.zero(Units.KWH);
-		Quantity q4=new Quantity(1,Units.KG);
+		Quantity q1=new SimpleQuantity(0,Units.KG);
+		Quantity q2=new SimpleQuantity(0,Units.KG);
+		Quantity q3=SimpleQuantity.zero(Units.KWH);
+		Quantity q4=new SimpleQuantity(1,Units.KG);
 		assertThat(q1.hashCode(),is(q2.hashCode()));
 		assertThat(q2.hashCode(),is(not(q3.hashCode())));
 		assertThat(q2.hashCode(),is(not(q4.hashCode())));		
@@ -32,7 +32,7 @@ public class QuantityTest {
 	public void testHashCodeLoop() {
 		List<Quantity> list=new ArrayList<Quantity>();
 		for (int i=0;i<COUNT;i++) {
-			list.add(new Quantity(i, Units.KWH));
+			list.add(new SimpleQuantity(i, Units.KWH));
 		}
 		
 		for (int i=0;i<COUNT;i++) {
@@ -47,45 +47,46 @@ public class QuantityTest {
 	
 	@Test
 	public void testGetUnit() {
-		Quantity q1=Quantity.zero(Units.KG);
-		Quantity q2=Quantity.zero(Units.KG);
+		Quantity q1=SimpleQuantity.zero(Units.KG);
+		Quantity q2=SimpleQuantity.zero(Units.KG);
 		assertThat(q1.getUnit().equals(Units.KG),is(true));
 		assertThat(q2.getUnit().equals(Units.KWH),is(false));
 	}
 
 	@Test
 	public void testAdd() {
-		Quantity q1=new Quantity(2,Units.KG);
-		Quantity q2=new Quantity(4,Units.KG);
-		assertThat(q1.add(q2),is(new Quantity(6, Units.KG)));
+		Quantity q1=new SimpleQuantity(2,Units.KG);
+		Quantity q2=new SimpleQuantity(4,Units.KG);
+		SimpleQuantity result=(SimpleQuantity) q1.add(q2);
+		assertThat(result,is(new SimpleQuantity(6, Units.KG)));
 	}
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testAddWrongUnits() {
-		Quantity q1=new Quantity(2,Units.KG);
-		Quantity q2=new Quantity(4,Units.KWH);
+		Quantity q1=new SimpleQuantity(2,Units.KG);
+		Quantity q2=new SimpleQuantity(4,Units.KWH);
 		q1.add(q2);
 	}
 
 	@Test
 	public void testSub() {
-		Quantity q1=new Quantity(2,Units.KG);
-		Quantity q2=new Quantity(4,Units.KG);
-		assertThat(q2.sub(q1).sub(q1),is(Quantity.zero(Units.KG)));
+		Quantity q1=new SimpleQuantity(2,Units.KG);
+		Quantity q2=new SimpleQuantity(4,Units.KG);
+		assertThat(q2.sub(q1).sub(q1),is(SimpleQuantity.zero(Units.KG)));
 	}
 
 	@Test
 	public void testGetAmount() {
-		Quantity q1=new Quantity(2,Units.KG);
+		Quantity q1=new SimpleQuantity(2,Units.KG);
 		assertThat(q1.getAmount(),is(2l));
 	}
 
 	@Test
 	public void testEqualsObject() {
-		Quantity q1=new Quantity(2,Units.KG);
-		Quantity q2=new Quantity(3,Units.KG);
-		Quantity q3=new Quantity(2,Units.KWH);
-		assertThat(q1.equals(2),is(false));
+		Quantity q1=new SimpleQuantity(2,Units.KG);
+		Quantity q2=new SimpleQuantity(3,Units.KG);
+		Quantity q3=new SimpleQuantity(2,Units.KWH);
+		assertThat(q1.equals(q2),is(false));
 		assertThat(q1.equals(q1),is(true));
 		assertThat(q1.equals(q2),is(false));
 		assertThat(q1.equals(q3),is(false));
@@ -93,9 +94,9 @@ public class QuantityTest {
 
 	@Test
 	public void testIsGreater() {
-		Quantity q1=new Quantity(2,Units.KG);
-		Quantity q2=new Quantity(3,Units.KG);
-		Quantity q3=new Quantity(3,Units.KG);
+		SimpleQuantity q1=new SimpleQuantity(2,Units.KG);
+		SimpleQuantity q2=new SimpleQuantity(3,Units.KG);
+		SimpleQuantity q3=new SimpleQuantity(3,Units.KG);
 		assertThat(q1.isGreater(q2),is(false));
 		assertThat(q2.isGreater(q1),is(true));
 		assertThat(q2.isGreater(q3),is(false));
@@ -104,9 +105,9 @@ public class QuantityTest {
 
 	@Test
 	public void testIsGreaterOrEqual() {
-		Quantity q1=new Quantity(2,Units.KG);
-		Quantity q2=new Quantity(3,Units.KG);
-		Quantity q3=new Quantity(3,Units.KG);
+		SimpleQuantity q1=new SimpleQuantity(2,Units.KG);
+		SimpleQuantity q2=new SimpleQuantity(3,Units.KG);
+		SimpleQuantity q3=new SimpleQuantity(3,Units.KG);
 		assertThat(q1.isGreaterOrEqual(q2),is(false));
 		assertThat(q2.isGreaterOrEqual(q1),is(true));
 		assertThat(q2.isGreaterOrEqual(q3),is(true));

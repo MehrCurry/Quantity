@@ -4,6 +4,11 @@
   <artifactId>quantity</artifactId>
   <name>Quantity Pattern</name>
   <version>0.0.1-SNAPSHOT</version>
+  <parent>
+	  <groupId>de.gzockoll</groupId>
+	  <artifactId>pom-master</artifactId>
+	  <version>1</version>
+  </parent>
   <description>nach Martin Fowler</description>
   	<build>
 		<plugins>
