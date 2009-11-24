@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.056" errors="0" skipped="0" tests="9" name="de.gzockoll.quantity.QuantityTest">
+<testsuite failures="0" time="0.065" errors="0" skipped="0" tests="9" name="de.gzockoll.quantity.QuantityTest">
   <properties>
     <property name="java.vendor" value="Apple Inc."/>
     <property name="localRepository" value="/Users/guido/.m2/repository"/>
@@ -8,7 +8,8 @@
     <property name="os.name" value="Mac OS X"/>
     <property name="sun.boot.class.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsfd.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/ui.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/laf.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/sunrsasign.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsse.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jce.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/charsets.jar"/>
     <property name="env.TMPDIR" value="/var/folders/gB/gBOW0VFTHi0T3ItfoH1DzE+++TI/-Tmp-/"/>
-    <property name="env.PWD" value="/Users/guido/Documents/workspace/quantity"/>
+    <property name="env.PWD" value="/Users/guido/Documents/workspace/billingAndAccounting"/>
+    <property name="env.JAVA_MAIN_CLASS_39629" value="org.codehaus.classworlds.Launcher"/>
     <property name="env.LANG" value="de_DE.UTF-8"/>
     <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="java.runtime.version" value="1.6.0_15-b03-219"/>
@@ -26,6 +27,7 @@
     <property name="java.version" value="1.6.0_15"/>
     <property name="user.timezone" value="Europe/Berlin"/>
     <property name="sun.arch.data.model" value="64"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.endorsed.dirs" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/endorsed"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="MacRoman"/>
@@ -46,9 +48,11 @@
     <property name="env.TERM" value="xterm-color"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="env.MANPATH" value="/opt/local/share/man:"/>
     <property name="user.home" value="/Users/guido"/>
-    <property name="env.OLDPWD" value="/Users/guido/Documents/workspace/quantity"/>
+    <property name="env.OLDPWD" value="/Users/guido/Documents/workspace/billingAndAccounting"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="env.TERM_PROGRAM" value="Apple_Terminal"/>
     <property name="java.library.path" value=".:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
@@ -69,9 +73,8 @@
     <property name="env.MAVEN_OPTS" value="-Xmx1024m"/>
     <property name="env.SSH_AUTH_SOCK" value="/tmp/launch-q4uONw/Listeners"/>
     <property name="env.COMMAND_MODE" value="unix2003"/>
-    <property name="env.JAVA_MAIN_CLASS_29851" value="org.codehaus.classworlds.Launcher"/>
-    <property name="os.arch" value="x86_64"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
+    <property name="os.arch" value="x86_64"/>
     <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/ext"/>
     <property name="env.DBUS_LAUNCHD_SESSION_BUS_SOCKET" value="/tmp/launch-PBeeYR/unix_domain_listener"/>
     <property name="user.dir" value="/Users/guido/Documents/workspace/quantity"/>
@@ -83,13 +86,13 @@
     <property name="file.encoding" value="MacRoman"/>
     <property name="java.specification.version" value="1.6"/>
   </properties>
-  <testcase time="0.01" classname="de.gzockoll.quantity.QuantityTest" name="testHashCode"/>
+  <testcase time="0.009" classname="de.gzockoll.quantity.QuantityTest" name="testHashCode"/>
   <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testGetUnit"/>
   <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testAdd"/>
-  <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testAddWrongUnits"/>
+  <testcase time="0.001" classname="de.gzockoll.quantity.QuantityTest" name="testAddWrongUnits"/>
   <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testSub"/>
   <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testGetAmount"/>
-  <testcase time="0.001" classname="de.gzockoll.quantity.QuantityTest" name="testEqualsObject"/>
+  <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testEqualsObject"/>
   <testcase time="0.001" classname="de.gzockoll.quantity.QuantityTest" name="testIsGreater"/>
   <testcase time="0" classname="de.gzockoll.quantity.QuantityTest" name="testIsGreaterOrEqual"/>
 </testsuite>

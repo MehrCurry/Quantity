@@ -84,4 +84,9 @@ public abstract class AbstractQuantity  implements Comparable<Quantity>, Quantit
 	public String toString() {
 		return amount + " " + unit;
 	}
+	
+	@Override
+	public boolean isZero() {
+		return amount==0;
+	}
 }

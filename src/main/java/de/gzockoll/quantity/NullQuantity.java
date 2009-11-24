@@ -1,6 +1,6 @@
 package de.gzockoll.quantity;
 
-class ZeroQuantity implements Quantity {
+public class NullQuantity implements Quantity {
 	@Override
 	public Quantity add(Quantity other) {
 		return other;
@@ -28,12 +28,12 @@ class ZeroQuantity implements Quantity {
 
 	@Override
 	public Quantity newInstance(long amount, Unit unit) {
-		return new ZeroQuantity();
+		return new NullQuantity();
 	}
 
 	@Override
 	public Quantity newInstanceFromQuantity(Quantity a) {
-		return new ZeroQuantity();
+		return new NullQuantity();
 	}
 
 	public boolean equals(Object obj) {
@@ -62,5 +62,10 @@ class ZeroQuantity implements Quantity {
 
 	public int compareTo(Quantity other) {
 		return 0;
+	}
+
+	@Override
+	public boolean isZero() {
+		return true;
 	}
 }

@@ -23,5 +23,6 @@ public interface Quantity {
 	public int hashCode();
 
 	public int compareTo(Quantity other);
-
+	
+	boolean isZero();
 }

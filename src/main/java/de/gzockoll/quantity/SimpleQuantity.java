@@ -2,8 +2,6 @@ package de.gzockoll.quantity;
 
 public final class SimpleQuantity extends AbstractQuantity implements
 		Comparable<Quantity>, Quantity {
-	protected long amount;
-	protected Unit unit;
 
 	public SimpleQuantity(long amount, Unit unit) {
 		super(amount,unit);
@@ -13,9 +11,6 @@ public final class SimpleQuantity extends AbstractQuantity implements
 		super(q);
 	}
 
-	public boolean isZero() {
-		return amount == 0;
-	}
 	@Override
 	public Quantity newInstanceFromQuantity(Quantity q) {
 		return new SimpleQuantity(q);
