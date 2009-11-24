@@ -20,10 +20,10 @@ public class QuantityTest {
 
 	@Test
 	public void testHashCode() {
-		Quantity q1=new SimpleQuantity(0,Units.KG);
-		Quantity q2=new SimpleQuantity(0,Units.KG);
-		Quantity q3=SimpleQuantity.zero(Units.KWH);
-		Quantity q4=new SimpleQuantity(1,Units.KG);
+		Quantity q1=Units.KG.amount(0);
+		Quantity q2=Units.KG.amount(0);;
+		Quantity q3=Units.KWH.amount(0);
+		Quantity q4=Units.KG.amount(1);
 		assertThat(q1.hashCode(),is(q2.hashCode()));
 		assertThat(q2.hashCode(),is(not(q3.hashCode())));
 		assertThat(q2.hashCode(),is(not(q4.hashCode())));		
@@ -47,18 +47,18 @@ public class QuantityTest {
 	
 	@Test
 	public void testGetUnit() {
-		Quantity q1=SimpleQuantity.zero(Units.KG);
-		Quantity q2=SimpleQuantity.zero(Units.KG);
+		Quantity q1=Units.KG.amount(0);
+		Quantity q2=Units.KG.amount(1);
 		assertThat(q1.getUnit().equals(Units.KG),is(true));
 		assertThat(q2.getUnit().equals(Units.KWH),is(false));
 	}
 
 	@Test
 	public void testAdd() {
-		Quantity q1=new SimpleQuantity(2,Units.KG);
-		Quantity q2=new SimpleQuantity(4,Units.KG);
-		SimpleQuantity result=(SimpleQuantity) q1.add(q2);
-		assertThat(result,is(new SimpleQuantity(6, Units.KG)));
+		Quantity q1=Units.KG.amount(2);
+		Quantity q2=Units.KG.amount(4);
+		Quantity result=q1.add(q2);
+		assertThat(result,is(Units.KG.amount(6)));
 	}
 
 	@Test(expected=IllegalArgumentException.class)
