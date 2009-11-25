@@ -28,12 +28,16 @@ public abstract class AbstractQuantity  implements Comparable<Quantity>, Quantit
 	 */
 	@Override
 	public Quantity add(Quantity other) {
+		if (other instanceof NullQuantity)
+			return this;
 		assertSameUnit(other);
 		return newInstance(getAmount() + other.getAmount(),getUnit());
 	}
 
 	@Override
 	public Quantity sub(Quantity other) {
+		if (other instanceof NullQuantity)
+			return this;
 		assertSameUnit(other);
 		return newInstance(getAmount() - other.getAmount(),getUnit());
 	}

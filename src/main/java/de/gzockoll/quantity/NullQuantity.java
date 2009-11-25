@@ -18,7 +18,8 @@ public class NullQuantity implements Quantity {
 
 	@Override
 	public Unit getUnit() {
-		return null;
+		return new Unit() { /* NullObject Pattern */
+		};
 	}
 
 	@Override
@@ -45,23 +46,26 @@ public class NullQuantity implements Quantity {
 	}
 
 	public boolean isGreater(SimpleQuantity other) {
-		return false;
+		return compareTo(other)>0;
 	}
 
 	public boolean isGreaterOrEqual(SimpleQuantity other) {
-		return false;
+		return compareTo(other)>=0;
 	}
 
 	public boolean isLess(SimpleQuantity other) {
-		return false;
+		return compareTo(other)<0;
 	}
 
 	public boolean isLessOrEqualn(SimpleQuantity other) {
-		return false;
+		return compareTo(other)<=0;
 	}
 
 	public int compareTo(Quantity other) {
-		return 0;
+		if (other instanceof NullQuantity)
+			return 0;
+		else
+			return -other.compareTo(this);
 	}
 
 	@Override
