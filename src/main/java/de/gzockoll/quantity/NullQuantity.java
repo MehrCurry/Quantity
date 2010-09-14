@@ -18,8 +18,7 @@ public class NullQuantity implements Quantity {
 
 	@Override
 	public Unit getUnit() {
-		return new Unit() { /* NullObject Pattern */
-		};
+		throw new UnsupportedOperationException(getClass().getName() + "does not understand method post()");
 	}
 
 	@Override
