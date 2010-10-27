@@ -1,20 +1,22 @@
 package de.gzockoll.quantity;
 
-public interface Quantity {
+public interface Quantity<T extends Number> {
 
 	Unit getUnit();
 
-	long getAmount();
+	T getAmount();
 
-	Quantity negate();
+	Quantity<T> negate();
 
-	Quantity add(Quantity other);
+	Quantity<T> add(Quantity<T> other);
 
-	Quantity sub(Quantity other);
+	Quantity<T> sub(Quantity<T> other);
 
-	Quantity newInstance(long amount,Unit unit);
+	Quantity<T> multiply(T val);
 
-	Quantity newInstanceFromQuantity(Quantity a);
+	//	Quantity<T> newInstance(Number number,Unit unit);
+//
+//	Quantity<T> newInstanceFromQuantity(Quantity<T> a);
 
 	@Override
 	public boolean equals(Object obj);
@@ -22,7 +24,11 @@ public interface Quantity {
 	@Override
 	public int hashCode();
 
-	public int compareTo(Quantity other);
+	public int compareTo(Quantity<T> other);
 	
 	boolean isZero();
+
+	boolean isGreater(Quantity<T> other);
+
+	boolean isGreaterOrEqual(Quantity<T> other);
 }

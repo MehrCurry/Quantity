@@ -36,12 +36,12 @@ public class NullQuantityTest {
 		assertThat(q2.sub(q1),is(q2));		
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected=UnsupportedOperationException.class)
 	public void testCompareTo1() {
 		assertThat(q1.compareTo(q2),is(-1));
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected=UnsupportedOperationException.class)
 	public void testCompareTo2() {
 		assertThat(q2.compareTo(q1),is(1));
 	}

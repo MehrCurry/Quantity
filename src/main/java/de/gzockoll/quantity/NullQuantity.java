@@ -12,7 +12,7 @@ public class NullQuantity implements Quantity {
 	}
 
 	@Override
-	public long getAmount() {
+	public Number getAmount() {
 		return 0;
 	}
 
@@ -26,16 +26,6 @@ public class NullQuantity implements Quantity {
 		return this;
 	}
 
-	@Override
-	public Quantity newInstance(long amount, Unit unit) {
-		return new NullQuantity();
-	}
-
-	@Override
-	public Quantity newInstanceFromQuantity(Quantity a) {
-		return new NullQuantity();
-	}
-
 	public boolean equals(Object obj) {
 		return false;
 	}
@@ -44,19 +34,19 @@ public class NullQuantity implements Quantity {
 		return 0;
 	}
 
-	public boolean isGreater(SimpleQuantity other) {
+	public boolean isGreater(Quantity other) {
 		return compareTo(other)>0;
 	}
 
-	public boolean isGreaterOrEqual(SimpleQuantity other) {
+	public boolean isGreaterOrEqual(Quantity other) {
 		return compareTo(other)>=0;
 	}
 
-	public boolean isLess(SimpleQuantity other) {
+	public boolean isLess(Quantity other) {
 		return compareTo(other)<0;
 	}
 
-	public boolean isLessOrEqualn(SimpleQuantity other) {
+	public boolean isLessOrEqualn(Quantity other) {
 		return compareTo(other)<=0;
 	}
 
@@ -70,5 +60,10 @@ public class NullQuantity implements Quantity {
 	@Override
 	public boolean isZero() {
 		return true;
+	}
+
+	@Override
+	public Quantity multiply(Number val) {
+		return this;
 	}
 }
