@@ -6,8 +6,8 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 public class BigDecimalQuantity implements Quantity<BigDecimal> {
-	private BigDecimal amount=new BigDecimal(0);
-	private Unit unit;
+	protected BigDecimal amount=new BigDecimal(0);
+	protected Unit unit;
 	
 
 	public BigDecimalQuantity(BigDecimal amount, Unit unit) {
@@ -47,6 +47,10 @@ public class BigDecimalQuantity implements Quantity<BigDecimal> {
 		return new BigDecimalQuantity(amount.subtract(other.getAmount()),unit);
 	}
 
+	public BigDecimalQuantity multiply(BigDecimal factor) {
+		return new BigDecimalQuantity(amount.multiply(factor), unit);
+	}
+	
 	@Override
 	public int compareTo(Quantity<BigDecimal> other) {
 		assertSameUnit(other);
