@@ -40,8 +40,12 @@ public class AbstractQuantity<T extends Number>  implements Comparable<Quantity<
 	private Number add(Number a, Number b) {
 		if (a instanceof BigDecimal || b instanceof BigDecimal)
 			return new BigDecimal(a.toString()).add(new BigDecimal(b.toString()));
+		if (a instanceof Double || b instanceof Double)
+			return new Double(a.doubleValue()+b.doubleValue());
 		if (a instanceof Long || b instanceof Long)
 			return new Long(a.longValue()+b.longValue());
+		if (a instanceof Integer || b instanceof Integer)
+			return new Integer(a.intValue()+b.intValue());
 		throw new IllegalArgumentException();
 	}
 	
