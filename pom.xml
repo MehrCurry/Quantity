@@ -3,11 +3,10 @@
   <groupId>de.gzockoll</groupId>
   <artifactId>quantity</artifactId>
   <name>Quantity Pattern</name>
-  <version>0.0.1-SNAPSHOT</version>
   <parent>
-	  <groupId>de.gzockoll</groupId>
-	  <artifactId>pom-master</artifactId>
-	  <version>1</version>
+	  <groupId>de.gzockoll.osgi</groupId>
+	  <artifactId>OsgiParent</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
   </parent>
   <description>nach Martin Fowler</description>  
   <scm>

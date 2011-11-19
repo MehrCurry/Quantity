@@ -79,7 +79,7 @@ public class QuantityTest {
 	@Test
 	public void testGetAmount() {
 		Quantity q1=new AbstractQuantity<Number>(2,Units.KG);
-		assertThat(q1.getAmount(),is((Number)2l));
+		assertThat(q1.getAmount(),is((Number)2));
 	}
 
 	@Test
