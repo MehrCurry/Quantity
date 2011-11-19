@@ -10,8 +10,8 @@
   </parent>
   <description>nach Martin Fowler</description>  
   <scm>
-  	<connection>scm:git:ssh://250101.vserver.de/var/spool/git/quantity</connection>
-  	<developerConnection>scm:git:ssh://250101.vserver.de/var/spool/git/quantity</developerConnection>
+  	<connection>scm:git:git@github.com:MehrCurry/Quantity.git</connection>
+  	<developerConnection>scm:git:git@github.com:MehrCurry/Quantity.git</developerConnection>
   </scm>
 
 </project>
